@@ -16,6 +16,10 @@ export const init = () => dispatch => {
     )
 }
 
+export const addCarTask = (car) => dispatch => {
+    database().ref(`/cars/`).push(car)
+}
+
 const initialState = {
     carsData: []
 }
