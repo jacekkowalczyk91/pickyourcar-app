@@ -6,9 +6,9 @@ class AddCarForm extends React.Component {
 
     state = {
         carName: '',
-        carCapacity: null,
-        carFuelConsumption: null,
-        carMaxSpeed: null
+        carCapacity: '',
+        carFuelConsumption: '',
+        carMaxSpeed: ''
     }
 
     handleInputChange = event => this.setState({
@@ -70,7 +70,4 @@ const mapDispatchToProps = dispatch => ({
     addCarTask: car => dispatch(addCarTask(car))
 })
 
-export default connect(
-    null,
-    mapDispatchToProps)
-(AddCarForm)
+export default connect(null, mapDispatchToProps)(AddCarForm)
