@@ -2,9 +2,9 @@ import {database} from '../firebase'
 
 const SET_CARS = 'cars/SET_CARS'
 
-const setCars = carsData => ({
+const setCars = cars => ({
     type: SET_CARS,
-    carsData
+    carsData: cars || {}
 })
 
 export const init = () => dispatch => {

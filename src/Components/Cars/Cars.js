@@ -4,15 +4,16 @@ import {connect} from 'react-redux'
 class Cars extends React.Component {
 
     render() {
-        const cars = this.props.carsData
+        const carsData = this.props.carsData
 
         return (
             <div>
                 {
-                    cars &&
-                    <React.Fragment>
-                        <p key={cars.index}>{cars.carName}</p>
-                    </React.Fragment>
+                    carsData && carsData.map(cars =>
+                        <div key={cars.id}>
+                            <p>{cars.carName}</p>
+                        </div>
+                    )
                 }
             </div>
         )
