@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {addCarTask} from "../../state/cars";
+import './AddCarForm.css'
 
 class AddCarForm extends React.Component {
 
