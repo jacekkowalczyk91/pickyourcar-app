@@ -20,6 +20,10 @@ export const addCarTask = (car) => dispatch => {
     database().ref(`/cars/`).push(car)
 }
 
+export const deleteCar = id => dispatch => {
+    database().ref(`/people/${id}`).set(null)
+}
+
 const initialState = {
     carsData: []
 }
