@@ -4,7 +4,7 @@ const SET_CARS = 'cars/SET_CARS'
 
 const setCars = cars => ({
     type: SET_CARS,
-    carsData: cars || {}
+    carsData: cars
 })
 
 export const init = () => dispatch => {
@@ -29,7 +29,12 @@ export default (state = initialState, action) => {
         case SET_CARS:
             return {
                 ...state,
-                carsData: action.carsData
+                carsData: Object.entries(action.carsData).map(
+                    ([key, val]) => ({
+                        id: key,
+                        ...val
+                    })
+                )
             }
         default:
             return state

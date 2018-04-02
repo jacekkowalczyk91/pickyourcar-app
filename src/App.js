@@ -13,7 +13,7 @@ class App extends Component {
                 <Router>
                     <div>
                         <Route exact path="/" component={AddCarForm}/>
-                        <Route exact path="/cars" component={Cars}/>
+                        <Route exact path="/" component={Cars}/>
                     </div>
                 </Router>
             </Provider>

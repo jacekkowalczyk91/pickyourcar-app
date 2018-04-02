@@ -9,10 +9,11 @@ class Cars extends React.Component {
         return (
             <div>
                 {
-                    carsData && carsData.map(cars =>
-                        <div key={cars.id}>
-                            <p>{cars.carName}</p>
-                        </div>
+                    carsData && carsData.map(
+                        cars =>
+                            <div key={cars.id}>
+                                <p>{cars.carName}</p>
+                            </div>
                     )
                 }
             </div>
