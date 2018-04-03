@@ -37,4 +37,4 @@ const mapStateToProps = state => ({
     carsData: state.cars.carsData
 })
 
-export default connect(mapDispatchToProps, mapStateToProps)(Cars)
+export default connect(mapStateToProps, mapDispatchToProps)(Cars)
