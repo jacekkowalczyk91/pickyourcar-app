@@ -4,7 +4,7 @@ const SET_CARS = 'cars/SET_CARS'
 
 const setCars = cars => ({
     type: SET_CARS,
-    carsData: cars
+    carsData: cars || {}
 })
 
 export const init = () => dispatch => {
@@ -21,7 +21,7 @@ export const addCarTask = (car) => dispatch => {
 }
 
 export const deleteCar = id => dispatch => {
-    database().ref(`/people/${id}`).set(null)
+    database().ref(`/cars/${id}`).set(null)
 }
 
 const initialState = {
