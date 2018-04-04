@@ -1,3 +1,6 @@
-div > Table {
+table {
     margin: 40px auto;
+    background: azure;
+    text-align: center;
+    border: 1px solid chocolate;
 }

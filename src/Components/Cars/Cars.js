@@ -1,6 +1,5 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Table, Button} from 'react-bootstrap'
 import {deleteCar} from "../../state/cars";
 import './Cars.css'
 
@@ -11,11 +10,9 @@ class Cars extends React.Component {
 
         return (
             <div>
-                <Table striped bordered condensed hover highlight>
+                <table>
                     <thead>
-                    <tr style={{
-                        backgroundColor: '#76acdb'
-                    }}>
+                    <tr>
                         <th>Name</th>
                         <th>Capacity</th>
                         <th>Max speed</th>
@@ -31,16 +28,16 @@ class Cars extends React.Component {
                                     <td>{cars.carCapacity}</td>
                                     <td>{cars.carMaxSpeed}</td>
                                     <td>{cars.carFuelConsumption}</td>
-                                    <Button
+                                    <button
                                         onClick={() => {
                                             this.props.deleteCar(cars.id)
                                         }}
-                                    >usun</Button>
+                                    >Usuń</button>
                                 </tr>
                         )
                     }
                     </tbody>
-                </Table>
+                </table>
             </div>
         )
     }
