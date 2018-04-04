@@ -9,5 +9,5 @@ div form input[type= 'text'] {
 }
 div form input[type= 'submit']{
     display: block;
-    margin: 0 auto;
+    margin: 10px auto;
 }

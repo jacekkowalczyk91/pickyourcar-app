@@ -1,6 +1,8 @@
-table {
+Table {
     margin: 40px auto;
     background: azure;
-    text-align: center;
-    border: 1px solid chocolate;
+    text-align: left;
+}
+Button {
+    width:50%;
 }

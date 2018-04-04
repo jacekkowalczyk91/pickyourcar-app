@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {deleteCar} from "../../state/cars";
 import './Cars.css'
-import {Table} from 'react-bootstrap'
+import {Table, Button} from 'react-bootstrap'
 
 class Cars extends React.Component {
 
@@ -11,7 +11,10 @@ class Cars extends React.Component {
 
         return (
             <div>
-                <Table>
+                <Table striped
+                       hover
+                       condensed
+                       pagination>
                     <thead>
                     <tr>
                         <th>Name</th>
@@ -29,11 +32,11 @@ class Cars extends React.Component {
                                     <td>{cars.carCapacity}</td>
                                     <td>{cars.carMaxSpeed}</td>
                                     <td>{cars.carFuelConsumption}</td>
-                                    <button
+                                    <Button
                                         onClick={() => {
                                             this.props.deleteCar(cars.id)
                                         }}
-                                    >Usuń</button>
+                                    >Usuń</Button>
                                 </tr>
                         )
                     }
