@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {deleteCar} from "../../state/cars";
 import './Cars.css'
+import {Table} from 'react-bootstrap'
 
 class Cars extends React.Component {
 
@@ -10,7 +11,7 @@ class Cars extends React.Component {
 
         return (
             <div>
-                <table>
+                <Table>
                     <thead>
                     <tr>
                         <th>Name</th>
@@ -37,7 +38,7 @@ class Cars extends React.Component {
                         )
                     }
                     </tbody>
-                </table>
+                </Table>
             </div>
         )
     }

@@ -8,10 +8,10 @@ class Menu extends React.Component {
             <div>
                 <Navbar>
                     <Nav>
-                        <LinkContainer exact to="/">
+                        <LinkContainer to="/">
                             <NavItem>Lista samochodów</NavItem>
                         </LinkContainer>
-                        <LinkContainer exact to="/AddCar">
+                        <LinkContainer to="/AddCar">
                             <NavItem>Dodaj samochód</NavItem>
                         </LinkContainer>
                     </Nav>
