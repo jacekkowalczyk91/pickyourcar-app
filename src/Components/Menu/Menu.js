@@ -15,6 +15,9 @@ class Menu extends React.Component {
                         <LinkContainer exact to="/AddCar">
                             <NavItem>Dodaj samochód</NavItem>
                         </LinkContainer>
+                        <LinkContainer exact to='/SelectedCars'>
+                            <NavItem>Wybrane samochody</NavItem>
+                        </LinkContainer>
                     </Nav>
                 </Navbar>;
             </div>

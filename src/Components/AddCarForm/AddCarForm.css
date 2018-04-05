@@ -3,7 +3,7 @@ body {
 }
 div form input[type= 'text'] {
     display: block;
-    margin: 0 auto;
+    margin: 5px auto;
     width: 30%;
     border-radius: 5px;
 }

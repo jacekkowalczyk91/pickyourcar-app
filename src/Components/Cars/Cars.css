@@ -2,7 +2,8 @@ Table {
     margin: 40px auto;
     background: azure;
     text-align: left;
+    width: 70%;
 }
-Button {
-    width:50%;
+.table{
+    max-width: 70%;
 }
