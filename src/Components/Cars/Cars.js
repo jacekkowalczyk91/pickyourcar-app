@@ -3,14 +3,28 @@ import {connect} from 'react-redux'
 import {deleteCar} from "../../state/cars";
 import './Cars.css'
 import {Table, Button} from 'react-bootstrap'
+import CarSearch from "./CarSearch";
 
 class Cars extends React.Component {
+
+    state = {
+        currentSearchPhrase: ''
+    }
+
+    handleSearchPhraseChange = event => {
+        this.setState({
+            currentSearchPhrase: event.target.value
+        })
+    }
 
     render() {
         const carsData = this.props.carsData
 
         return (
             <div>
+                <CarSearch
+
+                />
                 <Table striped
                        hover
                        condensed
