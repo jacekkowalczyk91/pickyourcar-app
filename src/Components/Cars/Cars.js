@@ -33,9 +33,9 @@ class Cars extends React.Component {
                     <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Capacity</th>
-                        <th>Max speed</th>
-                        <th>Fuel consumption</th>
+                        <th>Capacity [l]</th>
+                        <th>Max speed [km/h]</th>
+                        <th>Fuel consumption [l/100km]</th>
                     </tr>
                     </thead>
                     <tbody>

@@ -19,6 +19,7 @@ class AddCarForm extends React.Component {
     handleSubmit = event => {
         event.preventDefault()
             this.props.addCarTask(this.state)
+        alert('Dodano samochód')
     }
 
     render() {
@@ -43,7 +44,7 @@ class AddCarForm extends React.Component {
                         onChange={this.handleInputChange}
                     />
                     <input
-                        pattern="[0-9]{1,6}"
+                        pattern="(?<=^| )\d+(\.\d+)?(?=$| )"
                         name='carFuelConsumption'
                         type='text'
                         placeholder='car fuel consumption...'
