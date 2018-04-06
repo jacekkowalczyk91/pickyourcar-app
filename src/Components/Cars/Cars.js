@@ -23,7 +23,8 @@ class Cars extends React.Component {
         return (
             <div>
                 <CarSearch
-
+                    searchPhrase={this.state.currentSearchPhrase}
+                    handleChange={this.handleSearchPhraseChange}
                 />
                 <Table striped
                        hover
@@ -39,7 +40,9 @@ class Cars extends React.Component {
                     </thead>
                     <tbody>
                     {
-                        carsData && carsData.map(
+                        carsData && carsData
+                            .filter(cars => cars.carName.toLowerCase().includes(this.state.currentSearchPhrase))
+                            .map(
                             cars =>
                                 <tr key={cars.id}>
                                     <td>{cars.carName}</td>

@@ -3,10 +3,6 @@ import {InputGroup, FormControl} from 'react-bootstrap'
 
 class CarSearch extends React.Component {
 
-    state = {
-        inputValue: ''
-    }
-
     handleChange = event => {
         this.setState({
             inputValue: event.target.value
@@ -19,7 +15,7 @@ class CarSearch extends React.Component {
                 <form>
                     <InputGroup>
                         <FormControl
-                            onChange={this.handleChange}
+                            onChange={this.props.handleChange}
                             type='text'
                         />
                     </InputGroup>
