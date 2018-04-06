@@ -4,6 +4,7 @@ import {deleteCar} from "../../state/cars";
 import './Cars.css'
 import {Table, Button} from 'react-bootstrap'
 import CarSearch from "./CarSearch";
+import {toggleChosen} from '../../state/cars'
 
 class Cars extends React.Component {
 
@@ -41,7 +42,7 @@ class Cars extends React.Component {
                     <tbody>
                     {
                         carsData && carsData
-                            .filter(cars => cars.carName.toLowerCase().includes(this.state.currentSearchPhrase))
+                            .filter(cars => cars.carName.includes(this.state.currentSearchPhrase.toLowerCase()))
                             .map(
                             cars =>
                                 <tr key={cars.id}>
@@ -54,6 +55,15 @@ class Cars extends React.Component {
                                             this.props.deleteCar(cars.id)
                                         }}
                                     >Usuń</Button>
+                                    <Button
+                                        onClick={toggleChosen}
+                                    >
+                                        {
+                                            cars.isChosen ?
+                                                'mark as undone' :
+                                                'mark as done'
+                                        }
+                                    </Button>
                                 </tr>
                         )
                     }

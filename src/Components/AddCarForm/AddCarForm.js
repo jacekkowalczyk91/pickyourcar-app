@@ -9,7 +9,8 @@ class AddCarForm extends React.Component {
         carName: '',
         carCapacity: '',
         carFuelConsumption: '',
-        carMaxSpeed: ''
+        carMaxSpeed: '',
+        isChosen: false
     }
 
     handleInputChange = event => this.setState({

@@ -24,6 +24,11 @@ export const deleteCar = id => dispatch => {
     database().ref(`/cars/${id}`).set(null)
 }
 
+export const toggleChosen = id => {
+    database().ref(`cars/${id}/isChosen`).update(!cars.isChosen)
+
+}
+
 const initialState = {
     carsData: []
 }
