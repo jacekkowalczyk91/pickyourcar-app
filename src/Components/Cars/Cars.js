@@ -56,12 +56,12 @@ class Cars extends React.Component {
                                         }}
                                     >Usuń</Button>
                                     <Button
-                                        onClick={toggleChosen}
+                                        onClick={() => {this.props.toggleChosen(cars.id)}}
                                     >
                                         {
                                             cars.isChosen ?
-                                                'mark as undone' :
-                                                'mark as done'
+                                                'unchosen' :
+                                                'chosen'
                                         }
                                     </Button>
                                 </tr>
@@ -74,7 +74,8 @@ class Cars extends React.Component {
     }
 }
 const mapDispatchToProps = dispatch => ({
-    deleteCar: id => dispatch(deleteCar(id))
+    deleteCar: id => dispatch(deleteCar(id)),
+    toggleChosen: id => dispatch(toggleChosen(id))
 })
 
 const mapStateToProps = state => ({
