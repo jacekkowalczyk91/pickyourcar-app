@@ -25,7 +25,7 @@ export const deleteCar = id => dispatch => {
 }
 
 export const toggleChosen = id => {
-    database().ref(`cars/${id}/isChosen`).update(!cars.isChosen)
+    database().ref(`cars/${id}/isChosen`).update(!carsData.isChosen)
 
 }
 
