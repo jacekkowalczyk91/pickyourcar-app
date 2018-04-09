@@ -19,6 +19,11 @@ class CarSearch extends React.Component {
                             onChange={this.props.handleChange}
                             type='text'
                         />
+                        <input
+                            type='range'
+                            min='0'
+                            max='500'
+                        />
                     </InputGroup>
                 </form>
             </div>
