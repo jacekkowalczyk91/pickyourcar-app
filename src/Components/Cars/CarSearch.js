@@ -1,8 +1,16 @@
 import React from 'react'
 import {InputGroup, FormControl} from 'react-bootstrap'
 import './CarSearch.css'
+import InputRange from 'react-input-range'
+import 'react-input-range/lib/css/index.css'
+import {connect} from 'react-redux'
+
 
 class CarSearch extends React.Component {
+
+    state = {
+        value: {min: 0, max: 100}
+    }
 
     handleChange = event => {
         this.setState({
@@ -10,8 +18,14 @@ class CarSearch extends React.Component {
         })
     }
 
-    render(){
-        return(
+    getMaxValue = () => (
+        this.props.carsData.reduce((max, next) =>
+                Math.max(max, parseInt(next.value, 10))
+            , 0
+        ))
+
+    render() {
+        return (
             <div>
                 <form>
                     <InputGroup>
@@ -19,16 +33,21 @@ class CarSearch extends React.Component {
                             onChange={this.props.handleChange}
                             type='text'
                         />
-                        <input
-                            type='range'
-                            min='0'
-                            max='500'
-                        />
                     </InputGroup>
+                    <InputRange
+                        minValue={0}
+                        maxValue={this.getMaxValue()}
+                        value={this.state.value}
+                        onChange={value => this.setState({ value })}
+                    />
                 </form>
             </div>
         )
     }
 }
 
-export default CarSearch
+const mapStateToProps = state => ({
+    carsData: state.cars.carsData
+})
+
+export default connect(mapStateToProps)(CarSearch)
