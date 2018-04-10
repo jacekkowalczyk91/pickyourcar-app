@@ -55,7 +55,7 @@ class Cars extends React.Component {
                                             this.props.deleteCar(cars.id)
                                         }}
                                     >Usuń</Button>
-                                    <Button
+                                    <td><Button
                                         onClick={() => {this.props.toggleChosen(cars.id)}}
                                     >
                                         {
@@ -63,7 +63,7 @@ class Cars extends React.Component {
                                                 'unchosen' :
                                                 'chosen'
                                         }
-                                    </Button>
+                                    </Button></td>
                                 </tr>
                         )
                     }

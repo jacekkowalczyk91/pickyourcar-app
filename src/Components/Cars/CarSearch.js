@@ -18,15 +18,14 @@ class CarSearch extends React.Component {
         })
     }
 
-    getMaxValue = () => (
-        this.props.carsData.reduce((max, next) =>
-                Math.max(max, parseInt(next.value, 10))
-            , 0
-        ))
+    getMaxValue = () => {
+        this.props.carsData.map(({carCapacity}) => carCapacity).reduce((max, next) => Math.max(max, next), 0)
+    }
 
     render() {
         return (
             <div>
+                {console.log(this.getMaxValue())}
                 <form>
                     <InputGroup>
                         <FormControl
@@ -38,7 +37,7 @@ class CarSearch extends React.Component {
                         minValue={0}
                         maxValue={this.getMaxValue()}
                         value={this.state.value}
-                        onChange={value => this.setState({ value })}
+                        onChange={value => this.setState({value})}
                     />
                 </form>
             </div>
