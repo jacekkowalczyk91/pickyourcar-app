@@ -12,6 +12,7 @@ import 'react-input-range/lib/css/index.css'
 class Cars extends React.Component {
 
     state = {
+        isChosen: false,
         currentSearchPhrase: '',
         capacityValue: {
             min: 0,

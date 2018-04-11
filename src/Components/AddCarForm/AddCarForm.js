@@ -20,7 +20,7 @@ class AddCarForm extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault()
-            this.props.addCarTask(this.state)
+        this.props.addCarTask(this.state)
         alert('Dodano samochód')
     }
 
@@ -72,6 +72,7 @@ class AddCarForm extends React.Component {
                     />
                     <input
                         type='submit'
+                        value='Add'
                     />
                 </form>
             </div>

@@ -19,7 +19,7 @@ class Menu extends React.Component {
                             <NavItem>Wybrane samochody</NavItem>
                         </LinkContainer>
                     </Nav>
-                </Navbar>;
+                </Navbar>
             </div>
         )
     }

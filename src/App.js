@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Cars from "./Components/Cars/Cars";
 import AddCarForm from "./Components/AddCarForm/AddCarForm";
 import Menu from "./Components/Menu/Menu";
+import SelectedCars from "./Components/SelectedCars/SelectedCars";
 
 
 class App extends Component {
@@ -16,6 +17,7 @@ class App extends Component {
                         <Menu/>
                         <Route exact path="/addCar" component={AddCarForm}/>
                         <Route exact path="/" component={Cars}/>
+                        <Route exact path='/selectedCars' component={SelectedCars}/>
                     </div>
                 </Router>
             </Provider>

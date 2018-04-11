@@ -6,7 +6,8 @@
 
 label {
     font-size: large;
-    margin-left: 35%
+    margin-left: 35%;
+    margin-top: 30px;
 }
 .fuel {
     margin-left: 25%;

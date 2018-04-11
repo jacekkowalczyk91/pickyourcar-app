@@ -25,7 +25,7 @@ export const deleteCar = id => dispatch => {
 }
 
 export const toggleChosen = id => (dispatch, getState) => {
-    const car = getState().carsData.find(car => car.id === id)
+    const car = getState().cars.carsData.find(car => car.id === id)
     database().ref('/cars/' + id + '/isChosen').set(!car.isChosen)
 }
 
