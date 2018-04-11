@@ -1,8 +1,8 @@
 .nav-menu {
-    width: 30%;
+    width: 35%;
     margin: 0 auto;
-    background: #484a74;
-    border: grey;
+    background: grey;
+    border: black;
 }
 .navbar-default .navbar-nav > li > a {
     color: white;

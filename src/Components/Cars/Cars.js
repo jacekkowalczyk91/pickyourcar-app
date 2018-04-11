@@ -2,20 +2,29 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {deleteCar} from "../../state/cars";
 import './Cars.css'
-import {Table, Button} from 'react-bootstrap'
+import {Table, Button, Row, Col} from 'react-bootstrap'
 import CarSearch from "./CarSearch";
 import {toggleChosen} from '../../state/cars'
 import InputRange from 'react-input-range'
 import 'react-input-range/lib/css/index.css'
 
 
+
 class Cars extends React.Component {
 
     state = {
         currentSearchPhrase: '',
-        value: {
-            minCapacity: 0,
-            maxCapacity: 1000
+        capacityValue: {
+            min: 0,
+            max: 500
+        },
+        fuelConsumptionValue: {
+            min: 0,
+            max: 20
+        },
+        maxSpeedValue: {
+            min: 0,
+            max: 300
         }
     }
 
@@ -34,12 +43,35 @@ class Cars extends React.Component {
                     searchPhrase={this.state.currentSearchPhrase}
                     handleChange={this.handleSearchPhraseChange}
                 />
-                <InputRange
-                    minValue={0}
-                    maxValue={1000}
-                    value={this.state.value}
-                    onChange={value => this.setState({value})}
-                />
+                <Row>
+                    <Col sm={4}>
+                        <InputRange
+                            minValue={0}
+                            maxValue={500}
+                            value={this.state.capacityValue}
+                            onChange={capacityValue => this.setState({capacityValue})}
+                        />
+                    </Col>
+                    <Col sm={4}>
+                        <InputRange
+                            minValue={0}
+                            maxValue={20}
+                            value={this.state.fuelConsumptionValue}
+                            onChange={fuelConsumptionValue => this.setState({fuelConsumptionValue})}
+                        />
+                    </Col>
+                    <Col sm={4}>
+                        <InputRange
+                            minValue={0}
+                            maxValue={300}
+                            value={this.state.maxSpeedValue}
+                            onChange={maxSpeedValue => this.setState({maxSpeedValue})}
+                        />
+                    </Col>
+
+
+                </Row>
+
                 <Table striped
                        hover
                        condensed
@@ -56,7 +88,9 @@ class Cars extends React.Component {
                     {
                         carsData && carsData
                             .filter(cars => cars.carName.includes(this.state.currentSearchPhrase.toLowerCase()))
-                            .filter(cars => cars.carCapacity > this.state.value.minCapacity && cars.carCapacity < this.state.value.maxCapacity)
+                            .filter(cars => cars.carCapacity > this.state.capacityValue.min && cars.carCapacity < this.state.capacityValue.max)
+                            .filter(cars => cars.carFuelConsumption > this.state.fuelConsumptionValue.min && cars.carFuelConsumption < this.state.fuelConsumptionValue.max)
+                            .filter(cars => cars.carMaxSpeed > this.state.maxSpeedValue.min && cars.carMaxSpeed < this.state.maxSpeedValue.max)
                             .map(
                                 cars =>
                                     <tr key={cars.id}>
