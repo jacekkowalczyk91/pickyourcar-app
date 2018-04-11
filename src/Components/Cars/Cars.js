@@ -2,12 +2,11 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {deleteCar} from "../../state/cars";
 import './Cars.css'
-import {Table, Button, Row, Col} from 'react-bootstrap'
+import {Table, Button, Row, Col, ControlLabel} from 'react-bootstrap'
 import CarSearch from "./CarSearch";
 import {toggleChosen} from '../../state/cars'
 import InputRange from 'react-input-range'
 import 'react-input-range/lib/css/index.css'
-
 
 
 class Cars extends React.Component {
@@ -43,34 +42,41 @@ class Cars extends React.Component {
                     searchPhrase={this.state.currentSearchPhrase}
                     handleChange={this.handleSearchPhraseChange}
                 />
-                <Row>
-                    <Col sm={4}>
-                        <InputRange
-                            minValue={0}
-                            maxValue={500}
-                            value={this.state.capacityValue}
-                            onChange={capacityValue => this.setState({capacityValue})}
-                        />
-                    </Col>
-                    <Col sm={4}>
-                        <InputRange
-                            minValue={0}
-                            maxValue={20}
-                            value={this.state.fuelConsumptionValue}
-                            onChange={fuelConsumptionValue => this.setState({fuelConsumptionValue})}
-                        />
-                    </Col>
-                    <Col sm={4}>
-                        <InputRange
-                            minValue={0}
-                            maxValue={300}
-                            value={this.state.maxSpeedValue}
-                            onChange={maxSpeedValue => this.setState({maxSpeedValue})}
-                        />
-                    </Col>
+                <form className='form'>
+                    <Row>
+                        <Col xs={3}>
+                            <ControlLabel>Capacity</ControlLabel>
+                            <InputRange
+                                draggableTrack
+                                minValue={0}
+                                maxValue={500}
+                                value={this.state.capacityValue}
+                                onChange={capacityValue => this.setState({capacityValue})}
+                            />
+                        </Col>
+                        <Col xs={3}>
+                            <ControlLabel>Max speed</ControlLabel>
+                            <InputRange
+                                minValue={0}
+                                maxValue={300}
+                                value={this.state.maxSpeedValue}
+                                onChange={maxSpeedValue => this.setState({maxSpeedValue})}
+                            />
+                        </Col>
+                        <Col xs={3}>
+                            <ControlLabel className='fuel'>Fuel consumption</ControlLabel>
+                            <InputRange
+                                minValue={0}
+                                maxValue={20}
+                                value={this.state.fuelConsumptionValue}
+                                onChange={fuelConsumptionValue => this.setState({fuelConsumptionValue})}
+                                onChangeComplete={fuelConsumptionValue => console.log(fuelConsumptionValue)}
+                            />
+                        </Col>
+                    </Row>
 
 
-                </Row>
+                </form>
 
                 <Table striped
                        hover
@@ -78,7 +84,8 @@ class Cars extends React.Component {
                 >
                     <thead>
                     <tr>
-                        <th>Name</th>
+                        <th>Mark</th>
+                        <th>Model</th>
                         <th>Capacity [l]</th>
                         <th>Max speed [km/h]</th>
                         <th>Fuel consumption [l/100km]</th>
@@ -94,6 +101,7 @@ class Cars extends React.Component {
                             .map(
                                 cars =>
                                     <tr key={cars.id}>
+                                        <td>{cars.carMark}</td>
                                         <td>{cars.carName}</td>
                                         <td>{cars.carCapacity}</td>
                                         <td>{cars.carMaxSpeed}</td>
@@ -102,7 +110,7 @@ class Cars extends React.Component {
                                             onClick={() => {
                                                 this.props.deleteCar(cars.id)
                                             }}
-                                        >Usuń</Button></td>
+                                        >Delete</Button></td>
                                         <td><Button
                                             onClick={() => {
                                                 this.props.toggleChosen(cars.id)
@@ -110,8 +118,8 @@ class Cars extends React.Component {
                                         >
                                             {
                                                 cars.isChosen ?
-                                                    'unchosen' :
-                                                    'chosen'
+                                                    'Unselect' :
+                                                    'Select'
                                             }
                                         </Button></td>
                                     </tr>

@@ -1,4 +1,13 @@
-span {
-    margin: 0 auto;
-    width: 40%;
+.searchForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+label {
+    font-size: large;
+    margin-left: 35%
+}
+.fuel {
+    margin-left: 25%;
 }

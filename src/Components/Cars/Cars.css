@@ -4,26 +4,12 @@ Table {
     text-align: left;
     width: 70%;
 }
-.table{
+
+.table {
     max-width: 70%;
 }
-.input-range {
-    background-color: azure;
-    padding-bottom: 20px;
-    margin: 20px 0;
-}
-
-span.input-range__label-container {
-    color: #000000;
-    font-size: 14px;
-    margin: 0;
-}
-
-.input-range__track--active {
-    background: rgb(147, 62, 196);
-}
-
-
-.input-range__slider {
-    background: rgb(147, 62, 196)
+.form {
+    margin: 50px auto;
+    position: relative;
+    left: 13%
 }

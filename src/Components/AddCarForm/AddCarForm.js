@@ -6,6 +6,7 @@ import './AddCarForm.css'
 class AddCarForm extends React.Component {
 
     state = {
+        carMark: '',
         carName: '',
         carCapacity: '',
         carFuelConsumption: '',
@@ -30,6 +31,15 @@ class AddCarForm extends React.Component {
                     onSubmit={this.handleSubmit}
                 >
                     <input
+                        pattern='^[a-zA-Z]+$'
+                        name='carMark'
+                        value={this.state.carMark}
+                        placeholder='Car mark...'
+                        type='text'
+                        onChange={this.handleInputChange}
+                    />
+                    <input
+                        pattern='^[a-zA-Z]+$'
                         name='carName'
                         value={this.state.carName}
                         placeholder='Car name...'
