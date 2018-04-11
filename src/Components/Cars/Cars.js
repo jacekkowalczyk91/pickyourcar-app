@@ -5,11 +5,18 @@ import './Cars.css'
 import {Table, Button} from 'react-bootstrap'
 import CarSearch from "./CarSearch";
 import {toggleChosen} from '../../state/cars'
+import InputRange from 'react-input-range'
+import 'react-input-range/lib/css/index.css'
+
 
 class Cars extends React.Component {
 
     state = {
-        currentSearchPhrase: ''
+        currentSearchPhrase: '',
+        value: {
+            minCapacity: 0,
+            maxCapacity: 1000
+        }
     }
 
     handleSearchPhraseChange = event => {
@@ -27,10 +34,16 @@ class Cars extends React.Component {
                     searchPhrase={this.state.currentSearchPhrase}
                     handleChange={this.handleSearchPhraseChange}
                 />
+                <InputRange
+                    minValue={0}
+                    maxValue={1000}
+                    value={this.state.value}
+                    onChange={value => this.setState({value})}
+                />
                 <Table striped
                        hover
                        condensed
-                       pagination>
+                >
                     <thead>
                     <tr>
                         <th>Name</th>
@@ -43,29 +56,32 @@ class Cars extends React.Component {
                     {
                         carsData && carsData
                             .filter(cars => cars.carName.includes(this.state.currentSearchPhrase.toLowerCase()))
+                            .filter(cars => cars.carCapacity > this.state.value.minCapacity && cars.carCapacity < this.state.value.maxCapacity)
                             .map(
-                            cars =>
-                                <tr key={cars.id}>
-                                    <td>{cars.carName}</td>
-                                    <td>{cars.carCapacity}</td>
-                                    <td>{cars.carMaxSpeed}</td>
-                                    <td>{cars.carFuelConsumption}</td>
-                                    <Button
-                                        onClick={() => {
-                                            this.props.deleteCar(cars.id)
-                                        }}
-                                    >Usuń</Button>
-                                    <td><Button
-                                        onClick={() => {this.props.toggleChosen(cars.id)}}
-                                    >
-                                        {
-                                            cars.isChosen ?
-                                                'unchosen' :
-                                                'chosen'
-                                        }
-                                    </Button></td>
-                                </tr>
-                        )
+                                cars =>
+                                    <tr key={cars.id}>
+                                        <td>{cars.carName}</td>
+                                        <td>{cars.carCapacity}</td>
+                                        <td>{cars.carMaxSpeed}</td>
+                                        <td>{cars.carFuelConsumption}</td>
+                                        <td><Button
+                                            onClick={() => {
+                                                this.props.deleteCar(cars.id)
+                                            }}
+                                        >Usuń</Button></td>
+                                        <td><Button
+                                            onClick={() => {
+                                                this.props.toggleChosen(cars.id)
+                                            }}
+                                        >
+                                            {
+                                                cars.isChosen ?
+                                                    'unchosen' :
+                                                    'chosen'
+                                            }
+                                        </Button></td>
+                                    </tr>
+                            )
                     }
                     </tbody>
                 </Table>
@@ -73,6 +89,7 @@ class Cars extends React.Component {
         )
     }
 }
+
 const mapDispatchToProps = dispatch => ({
     deleteCar: id => dispatch(deleteCar(id)),
     toggleChosen: id => dispatch(toggleChosen(id))
