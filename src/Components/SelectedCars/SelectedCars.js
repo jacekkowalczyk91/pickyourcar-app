@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Table, Button} from 'react-bootstrap'
+import {toggleChosen} from "../../state/cars";
 
 class SelectedCars extends React.Component {
     render() {
@@ -53,4 +54,8 @@ const mapStateToProps = state => ({
     carsData: state.cars.carsData
 })
 
-export default connect(mapStateToProps)(SelectedCars)
+const mapDispatchToProps = dispatch => ({
+    toggleChosen: id => dispatch(toggleChosen(id))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(SelectedCars)
