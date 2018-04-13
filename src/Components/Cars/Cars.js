@@ -58,6 +58,7 @@ class Cars extends React.Component {
                         <Col xs={3}>
                             <ControlLabel>Max speed</ControlLabel>
                             <InputRange
+                                draggableTrack
                                 minValue={0}
                                 maxValue={300}
                                 value={this.state.maxSpeedValue}
@@ -67,6 +68,7 @@ class Cars extends React.Component {
                         <Col xs={3}>
                             <ControlLabel className='fuel'>Fuel consumption</ControlLabel>
                             <InputRange
+                                draggableTrack
                                 minValue={0}
                                 maxValue={20}
                                 value={this.state.fuelConsumptionValue}

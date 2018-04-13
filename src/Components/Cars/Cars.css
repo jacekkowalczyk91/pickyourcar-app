@@ -11,5 +11,9 @@ Table {
 .form {
     margin: 50px auto;
     position: relative;
-    left: 13%
+    left: 13%;
 }
+span {
+    color: black;
+}
+
