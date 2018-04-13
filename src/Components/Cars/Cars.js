@@ -95,7 +95,11 @@ class Cars extends React.Component {
                     <tbody>
                     {
                         carsData && carsData
-                            .filter(cars => cars.carName.toLowerCase().includes(this.state.currentSearchPhrase))
+                            .filter(
+                                cars =>
+                                    cars.carName.toLowerCase().includes(this.state.currentSearchPhrase)
+                                    ||
+                                    cars.carMark.toLowerCase().includes(this.state.currentSearchPhrase))
                             .filter(cars => cars.carCapacity > this.state.capacityValue.min && cars.carCapacity < this.state.capacityValue.max)
                             .filter(cars => cars.carFuelConsumption > this.state.fuelConsumptionValue.min && cars.carFuelConsumption < this.state.fuelConsumptionValue.max)
                             .filter(cars => cars.carMaxSpeed > this.state.maxSpeedValue.min && cars.carMaxSpeed < this.state.maxSpeedValue.max)
