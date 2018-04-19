@@ -20,8 +20,22 @@ class AddCarForm extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault()
-        this.props.addCarTask(this.state)
-        alert('Dodano samochód')
+        if (this.state.carMark.length >= 1
+            &&
+            this.state.carName.length >= 1
+            &&
+            this.state.carCapacity.length >= 1
+            &&
+            this.state.carFuelConsumption.length >= 1
+            &&
+            this.state.carMaxSpeed.length >= 1)
+        {
+            this.props.addCarTask(this.state)
+            alert('Dodano samochód')
+        }
+        else {
+            alert('nieprawidłowe dane')
+        }
     }
 
     render() {
@@ -39,7 +53,6 @@ class AddCarForm extends React.Component {
                         onChange={this.handleInputChange}
                     />
                     <input
-                        pattern='^[a-zA-Z]+$'
                         name='carName'
                         value={this.state.carName}
                         placeholder='Car name...'
