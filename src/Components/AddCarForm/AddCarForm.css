@@ -1,13 +1,19 @@
-body {
-    background: grey;
-}
 div form input[type= 'text'] {
     display: block;
-    margin: 5px auto;
-    width: 30%;
-    border-radius: 5px;
+    margin: 15px auto;
+    width: 40%;
+    height: 30px;
+    border-radius: 15px;
+    text-align: center;
 }
 div form input[type= 'submit']{
+    border:none;
+    border-radius: 10px;
+    background: azure;
+    margin: 1% auto 0;
     display: block;
-    margin: 10px auto;
+    font-size: 15px;
+}
+.add-car-form {
+    margin-top: 8%;
 }

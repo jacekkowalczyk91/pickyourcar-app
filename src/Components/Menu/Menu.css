@@ -3,6 +3,8 @@
     margin: 0 auto;
     border: black;
     background: rgba(0,0,0,0.6);
+    font-weight: bold;
+    font-size: 15px;
 }
 .navbar-default .navbar-nav > li > a {
     color: white;

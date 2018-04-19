@@ -84,6 +84,7 @@ class Cars extends React.Component {
                 <Table striped
                        hover
                        condensed
+                       responsive
                 >
                     <thead>
                     <tr>

@@ -43,6 +43,7 @@ class AddCarForm extends React.Component {
             <div>
                 <form
                     onSubmit={this.handleSubmit}
+                    className='add-car-form'
                 >
                     <input
                         pattern='^[a-zA-Z]+$'
