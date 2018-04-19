@@ -6,6 +6,7 @@ import Cars from "./Components/Cars/Cars";
 import AddCarForm from "./Components/AddCarForm/AddCarForm";
 import Menu from "./Components/Menu/Menu";
 import SelectedCars from "./Components/SelectedCars/SelectedCars";
+import './App.css'
 
 
 class App extends Component {

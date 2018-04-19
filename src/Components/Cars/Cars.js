@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {deleteCar} from "../../state/cars";
 import './Cars.css'
-import {Table, Button, Row, Col, ControlLabel} from 'react-bootstrap'
+import {Table, Button, Row, Col} from 'react-bootstrap'
 import CarSearch from "./CarSearch";
 import {toggleChosen} from '../../state/cars'
 import InputRange from 'react-input-range'
@@ -45,8 +45,8 @@ class Cars extends React.Component {
                 />
                 <form className='form'>
                     <Row>
-                        <Col xs={3}>
-                            <ControlLabel>Capacity</ControlLabel>
+                        <Col xs={10} sm={3}>
+                            <label className='capacity'>Capacity</label>
                             <InputRange
                                 draggableTrack
                                 minValue={0}
@@ -55,8 +55,8 @@ class Cars extends React.Component {
                                 onChange={capacityValue => this.setState({capacityValue})}
                             />
                         </Col>
-                        <Col xs={3}>
-                            <ControlLabel>Max speed</ControlLabel>
+                        <Col xs={10} sm={3}>
+                            <label className='speed'>Max speed</label>
                             <InputRange
                                 draggableTrack
                                 minValue={0}
@@ -65,8 +65,8 @@ class Cars extends React.Component {
                                 onChange={maxSpeedValue => this.setState({maxSpeedValue})}
                             />
                         </Col>
-                        <Col xs={3}>
-                            <ControlLabel className='fuel'>Fuel consumption</ControlLabel>
+                        <Col xs={10} sm={3}>
+                            <label className='fuel'>Fuel consumption</label>
                             <InputRange
                                 draggableTrack
                                 minValue={0}

@@ -3,17 +3,35 @@ Table {
     background: azure;
     text-align: left;
     width: 70%;
+    opacity: 0.9;
+    box-shadow: 5px 5px 6px grey;
 }
 
 .table {
-    max-width: 70%;
+    max-width: 70% ;
 }
-.form {
-    margin: 50px auto;
-    position: relative;
-    left: 13%;
+label {
+    margin-left: 0!important;
+    color: azure;
+    text-shadow: 3px 3px 3px black;
 }
 span {
     color: black;
+    text-align: center
 }
+.speed {
+    margin-left: 70px !important;
+}
+.fuel {
+    margin-left: 17% !important;
+}
+.capacity {
+    margin-left: 33% !important;
+}
+
+div.row {
+    max-width: 80%;
+    margin-left: 20%;
+}
+
 

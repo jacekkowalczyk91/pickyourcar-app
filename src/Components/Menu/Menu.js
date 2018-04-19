@@ -8,17 +8,20 @@ class Menu extends React.Component {
         return(
             <div>
                 <Navbar className='nav-menu'>
+                    <Navbar.Toggle/>
+                    <Navbar.Collapse>
                     <Nav>
                         <LinkContainer exact to="/">
-                            <NavItem>Lista samochodów</NavItem>
+                            <NavItem>Car list</NavItem>
                         </LinkContainer>
                         <LinkContainer exact to="/AddCar">
-                            <NavItem>Dodaj samochód</NavItem>
+                            <NavItem>Add car</NavItem>
                         </LinkContainer>
                         <LinkContainer exact to='/SelectedCars'>
-                            <NavItem>Wybrane samochody</NavItem>
+                            <NavItem>Selected car</NavItem>
                         </LinkContainer>
                     </Nav>
+                    </Navbar.Collapse>
                 </Navbar>
             </div>
         )
